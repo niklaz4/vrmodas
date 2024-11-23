@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR Modas - Moda Masculina</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">VRmodas</a>
+            <div class="search-container ms-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Pesquisar..." id="searchInput">
+                    <span class="input-group-text">
+                        <i class="bi bi-search"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="nav-item me-3">
+                    <i class="bi bi-camera-video"></i>
+                </div>
+                <div class="nav-item me-3">
+                    <i class="bi bi-heart"></i>
+                </div>
+                <div class="nav-item me-3">
+                    <i class="bi bi-cart3"></i>
+                </div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editProfileModal">Editar Perfil</a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#creditCardModal">Cartão de Crédito</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- modal de perfil -->
+    <div class="modal fade" id="editProfileModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-transparent">
+                <div class="modal-body bg-dark bg-opacity-75 text-white rounded">
+                    <h5 class="modal-title mb-3">Editar Perfil</h5>
+                    <form id="editProfileForm" enctype="multipart/form-data">
+                        <div class="mb-3 text-center">
+                            <div class="position-relative d-inline-block">
+                                <img id="profilePreview" src="galeria\perfil 1.jpg" 
+                                     class="rounded-circle mb-2" 
+                                     style="width: 120px; height: 120px; object-fit: cover;">
+                                <label for="profileImage" 
+                                       class="position-absolute bottom-0 end-0 bg-light rounded-circle p-2 cursor-pointer">
+                                    <i class="bi bi-camera-fill text-dark"></i>
+                                </label>
+                            </div>
+                            <input type="file" 
+                                   id="profileImage" 
+                                   name="profileImage" 
+                                   class="d-none"
+                                   accept=".png,.jpg,.jpeg">
+                            <div id="imageError" class="text-danger small"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nome de Usuário</label>
+                            <input type="text" class="form-control" id="username">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nova Senha</label>
+                            <input type="password" class="form-control" id="newPassword">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Endereço</label>
+                            <textarea class="form-control" id="address"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-light">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de cartão de credito -->
+    <div class="modal fade" id="creditCardModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-transparent">
+                <div class="modal-body bg-dark bg-opacity-75 text-white rounded">
+                    <h5 class="modal-title mb-3">Cartão de Crédito</h5>
+                    <form id="creditCardForm">
+                        <div class="mb-3">
+                            <label class="form-label">Número do Cartão</label>
+                            <input type="text" class="form-control" id="cardNumber" maxlength="16">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Validade</label>
+                                <input type="text" class="form-control" id="cardExpiry" placeholder="MM/AA">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">CVV</label>
+                                <input type="text" class="form-control" id="cardCVV" maxlength="3">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-light">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <!-- Carrossel -->
+    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="galeria\carrocel-1 1.png" alt="Moda Masculina">
+            </div>
+            <div class="carousel-item">
+                <img src="galeria\carrocel-2 1.png" alt="Coleção Verão">
+                <div class="banner-content">
+                    <!-- deixar em branco, vai que precisa inserir algo depois -->
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="galeria\carrocel-3 1.png" alt="Ofertas Especiais">
+                <div class="banner-content">
+                    <!-- deixar em branco, vai que precisa inserir algo depois -->
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <!-- Produtos -->
+    <section class="container my-5">
+        <h2>Produtos</h2>
+        <div class="row" id="produtos">
+            <!-- Produtos serão inseridos via JavaScript -->
+        </div>
+        <div class="pagination">
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+        </div>
+    </section>
+
+    <!-- Carrinho -->
+    <section class="container my-5">
+        <h2>Carrinho</h2>
+        <div id="carrinho">
+            <!-- Items do carrinho serão inseridos via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Formulário -->
+    <section class="container my-5">
+        <form id="checkoutForm" onsubmit="return validateForm(event)">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <input type="text" id="firstName" name="firstName" class="form-control" 
+                           placeholder="Primeiro nome" required 
+                           pattern="[A-Za-zÀ-ÿ\s]+" 
+                           maxlength="50"
+                           onkeyup="sanitizeInput(this)">
+                    <div class="invalid-feedback">Nome inválido</div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="text" id="lastName" name="lastName" class="form-control" 
+                           placeholder="Segundo nome" required 
+                           pattern="[A-Za-zÀ-ÿ\s]+" 
+                           maxlength="50"
+                           onkeyup="sanitizeInput(this)">
+                    <div class="invalid-feedback">Sobrenome inválido</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <input type="email" id="email" name="email" class="form-control" 
+                           placeholder="Email" required
+                           maxlength="100"
+                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                    <div class="invalid-feedback">Email inválido</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <input type="text" id="cep" name="cep" class="form-control" 
+                           placeholder="CEP" required
+                           pattern="\d{5}-?\d{3}"
+                           maxlength="9"
+                           onkeyup="formatCEP(this)"
+                           onblur="buscarCEP()">
+                    <div class="invalid-feedback">CEP inválido</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <select id="state" name="state" class="form-control" required disabled>
+                        <option value="">Estado</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <input type="text" id="city" name="city" class="form-control" 
+                           placeholder="Cidade" required disabled>
+                </div>
+            </div>
+            <div class="form-check mb-3">
+                <input type="checkbox" id="terms" name="terms" class="form-check-input" required>
+                <label class="form-check-label" for="terms">
+                    Aceito os termos e condições
+                </label>
+            </div>
+            <button type="submit" class="btn btn-dark">
+                Enviar
+            </button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Conteúdo:</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Fale Conosco</a></li>
+                        <li><a href="#">Meios de pagamento e frete</a></li>
+                        <li><a href="#">Política de privacidade</a></li>
+                        <li><a href="#">Política de Trocas e Devolução</a></li>
+                        <li><a href="#">Quem somos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5>Atendimento:</h5>
+                    <ul class="list-unstyled">
+                        <li>Telefone: 4002-8922</li>
+                        <li>Whatsapp: 11 99229-1289</li>
+                        <li>Seg. a Sexta 8:00H às 18:00H</li>
+                        <li>Endereço: Rua dos Bobos, nº 0 - SP</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
